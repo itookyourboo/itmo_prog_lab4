@@ -1,12 +1,10 @@
 package com.proglab4.entity;
 
-public class Father extends Entity {
-
-    private boolean isRight = true;
+public class Mother extends Entity {
 
     private Entity son;
 
-    public Father(Entity son) {
+    public Mother(Entity son) {
         this.son = son;
     }
 
@@ -18,22 +16,14 @@ public class Father extends Entity {
         this.son = son;
     }
 
-    public boolean isRight() {
-        return isRight;
-    }
-
-    public void setRight(boolean right) {
-        isRight = right;
-    }
-
     @Override
     public String getName() {
-        return "Папа";
+        return "Мама";
     }
 
     @Override
     public Sex getSex() {
-        return Sex.MALE;
+        return Sex.FEMALE;
     }
 
     @Override

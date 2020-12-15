@@ -27,9 +27,9 @@ public class Main {
 
         carlson.setPlace(null);
 
-        Father father = new Father();
+        Father father = new Father(baby);
         father.setRight(true);
-        Mother mother = new Mother();
+        Mother mother = new Mother(baby);
         Bosse bosse = new Bosse();
         Betan betan = new Betan();
         Entity[] entities = new Entity[]{mother, bosse, betan};
@@ -46,7 +46,7 @@ public class Main {
 
         Bimbo bimbo = new Bimbo();
 
-        Grandmother grandmother = new Grandmother();
+        Grandmother grandmother = new Grandmother(baby);
         Village village = new Village();
         village.setOwner(grandmother);
         Village.Redneck redneck = village.new Redneck();
