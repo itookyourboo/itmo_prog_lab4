@@ -2,6 +2,8 @@ package com.proglab4.misc;
 
 import com.proglab4.impl.Buzzable;
 
+import java.util.Objects;
+
 public class Buzz {
     private float volume;
     private float wavelength;
@@ -49,5 +51,20 @@ public class Buzz {
         if (source != null)
             return "Жужжание{source: " + source.toString() + "}";
         return "Жужжание";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Buzz buzz = (Buzz) o;
+        return Float.compare(buzz.volume, volume) == 0 &&
+                Float.compare(buzz.wavelength, wavelength) == 0 &&
+                Objects.equals(source, buzz.source);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(volume, wavelength, source);
     }
 }

@@ -1,5 +1,7 @@
 package com.proglab4.misc;
 
+import java.util.Objects;
+
 public class Stamp {
     private String country;
     private String image;
@@ -45,5 +47,20 @@ public class Stamp {
                     ", image='" + image + '\'' +
                     '}';
         return "Марка";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Stamp stamp = (Stamp) o;
+        return isBeautiful == stamp.isBeautiful &&
+                Objects.equals(country, stamp.country) &&
+                Objects.equals(image, stamp.image);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(country, image, isBeautiful);
     }
 }

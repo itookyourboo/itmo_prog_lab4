@@ -1,5 +1,7 @@
 package com.proglab4.entity;
 
+import java.util.Objects;
+
 public class Father extends Entity {
 
     private boolean isRight = true;
@@ -39,5 +41,19 @@ public class Father extends Entity {
     @Override
     public String toString() {
         return getName();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Father father = (Father) o;
+        return isRight == father.isRight &&
+                Objects.equals(son, father.son);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(isRight, son);
     }
 }

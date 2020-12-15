@@ -1,5 +1,7 @@
 package com.proglab4.entity;
 
+import java.util.Objects;
+
 public class Mother extends Entity {
 
     private Entity son;
@@ -29,5 +31,18 @@ public class Mother extends Entity {
     @Override
     public String toString() {
         return getName();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Mother mother = (Mother) o;
+        return Objects.equals(son, mother.son);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(son);
     }
 }
