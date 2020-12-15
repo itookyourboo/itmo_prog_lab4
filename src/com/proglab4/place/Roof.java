@@ -6,7 +6,8 @@ import java.util.Objects;
 
 public class Roof extends Place {
 
-    public Roof() {}
+    public Roof() {
+    }
 
     public Roof(Entity entity) {
         this();

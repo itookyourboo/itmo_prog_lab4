@@ -3,8 +3,6 @@ package com.proglab4;
 import com.proglab4.entity.*;
 import com.proglab4.exceptions.CarlsonIsAngryException;
 import com.proglab4.exceptions.StampIsBeautifulException;
-import com.proglab4.impl.Buzzable;
-import com.proglab4.impl.Playable;
 import com.proglab4.impl.SummerListener;
 import com.proglab4.misc.Album;
 import com.proglab4.misc.Buzz;
@@ -27,7 +25,6 @@ public class Main {
         carlson.setOnPlaceChangedListener(baby);
         carlson.setPlace(roof);
 
-        // Улетает
         carlson.setPlace(null);
 
         Father father = new Father();
@@ -35,11 +32,11 @@ public class Main {
         Mother mother = new Mother();
         Bosse bosse = new Bosse();
         Betan betan = new Betan();
-        Entity[] entities = new Entity[] {mother, bosse, betan};
-        for (Entity entity: entities)
+        Entity[] entities = new Entity[]{mother, bosse, betan};
+        for (Entity entity : entities)
             System.out.printf("%s понял%s, что %s %sправ\n",
-                    entity.getName(), entity.getSex() == Entity.Sex.FEMALE? "а": "",
-                    father.getName(), father.isRight()?"": "не ");
+                    entity.getName(), entity.getSex() == Entity.Sex.FEMALE ? "а" : "",
+                    father.getName(), father.isRight() ? "" : "не ");
 
         Entity babyCaresAbout = baby.caresAbout();
         if (babyCaresAbout == null)
@@ -47,19 +44,7 @@ public class Main {
         else
             System.out.println(baby.getName() + " беспокоится за " + babyCaresAbout.getName());
 
-        //TODO: не смог узнать про бабушку Карлсона
-
-        Entity bimboTheDog = new Entity() {
-            @Override
-            public String getName() {
-                return "Бимбо";
-            }
-
-            @Override
-            public Sex getSex() {
-                return Sex.MALE;
-            }
-        };
+        Bimbo bimbo = new Bimbo();
 
         Grandmother grandmother = new Grandmother();
         Village village = new Village();
@@ -74,8 +59,8 @@ public class Main {
                 System.out.println("Лето началось");
                 baby.setPlace(village);
                 System.out.println(baby.getName() + " уезжает в " + village.toString());
-                bimboTheDog.setPlace(village);
-                System.out.println(bimboTheDog.getName() + " уезжает в " + village.toString());
+                bimbo.setPlace(village);
+                System.out.println(bimbo.getName() + " уезжает в " + village.toString());
             }
 
             @Override
@@ -133,8 +118,8 @@ public class Main {
         Album album = new Album(1000);
         Stamp prettyStamp = new Stamp("Германия", "Красная Шапочка и Серый Волк");
         prettyStamp.setBeautiful(true);
-        Stamp[] stamps = new Stamp[] {new Stamp(), new Stamp(), prettyStamp, new Stamp()};
-        for (Stamp stamp: stamps) {
+        Stamp[] stamps = new Stamp[]{new Stamp(), new Stamp(), prettyStamp, new Stamp()};
+        for (Stamp stamp : stamps) {
             try {
                 album.glue(stamp);
                 System.out.println(baby.getName() + " клеит " + stamp.toString());

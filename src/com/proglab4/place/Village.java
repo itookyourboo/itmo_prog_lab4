@@ -2,7 +2,7 @@ package com.proglab4.place;
 
 import com.proglab4.entity.Entity;
 
-public class Village extends Place{
+public class Village extends Place {
     @Override
     public String getName() {
         return "Деревня";
@@ -13,7 +13,7 @@ public class Village extends Place{
         return String.format("%s{owner: %s}", getName(), getOwner().getName());
     }
 
-    public class Redneck extends Entity{
+    public class Redneck extends Entity {
 
         {
             setPlace(Village.this);

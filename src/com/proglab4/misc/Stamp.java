@@ -5,7 +5,8 @@ public class Stamp {
     private String image;
     private boolean isBeautiful = false;
 
-    public Stamp() {}
+    public Stamp() {
+    }
 
     public Stamp(String country, String image) {
         setCountry(country);

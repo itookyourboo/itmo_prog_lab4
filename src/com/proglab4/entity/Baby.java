@@ -106,7 +106,7 @@ public class Baby extends Entity implements CryableAbout, OnCarlsonPlaceChangedL
     }
 
     @Override
-    public void hug(Entity entity){
+    public void hug(Entity entity) {
         System.out.println(getName() + " обнимает " + entity.getName());
         if (entity instanceof Carlson && ((Carlson) entity).isAngry())
             throw new CarlsonIsAngryException("Карлсон злой!");

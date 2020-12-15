@@ -1,14 +1,14 @@
 package com.proglab4.entity;
 
-public class Grandmother extends Entity {
+public class Bimbo extends Entity {
     @Override
     public String getName() {
-        return "Бабушка";
+        return "Бимбо";
     }
 
     @Override
-    public Sex getSex() {
-        return Sex.FEMALE;
+    public Entity.Sex getSex() {
+        return Entity.Sex.MALE;
     }
 
     @Override

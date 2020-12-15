@@ -42,7 +42,7 @@ public class Carlson extends Entity implements InstanceChecker, Kickable {
         return true;
     }
 
-    private boolean isOnBabysRoof(){
+    private boolean isOnBabysRoof() {
         return getPlace() instanceof Roof && getPlace().getOwner() == getBaby();
     }
 
@@ -135,7 +135,7 @@ public class Carlson extends Entity implements InstanceChecker, Kickable {
 
         public void setWorking(boolean working) {
             isWorking = working;
-            System.out.println("Мотор " + (isWorking? "включен": "выключен"));
+            System.out.println("Мотор " + (isWorking ? "включен" : "выключен"));
         }
 
         @Override

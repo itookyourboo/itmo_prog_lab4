@@ -7,7 +7,8 @@ public class Buzz {
     private float wavelength;
     private Buzzable source;
 
-    public Buzz() {}
+    public Buzz() {
+    }
 
     public Buzz(float volume, float wavelength) {
         this.volume = volume;
