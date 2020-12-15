@@ -1,13 +1,17 @@
-package com.proglab3.entity;
+package com.proglab4.entity;
 
-import com.proglab3.place.Place;
+import com.proglab4.place.Place;
 
 public abstract class Entity {
     protected Place place = null;
 
     public abstract String getName();
 
-    public abstract boolean canFly();
+    public abstract Sex getSex();
+
+    public boolean canFly() {
+        return false;
+    }
 
     public Place getPlace() {
         return place;
@@ -15,5 +19,9 @@ public abstract class Entity {
 
     public void setPlace(Place place) {
         this.place = place;
+    }
+
+    public static enum Sex {
+        MALE, FEMALE
     }
 }

@@ -1,6 +1,6 @@
-package com.proglab3.misc;
+package com.proglab4.misc;
 
-import com.proglab3.impl.InstanceChecker;
+import com.proglab4.impl.InstanceChecker;
 
 import java.util.Objects;
 

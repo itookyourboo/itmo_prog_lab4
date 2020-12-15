@@ -1,18 +1,21 @@
-package com.proglab3.entity;
+package com.proglab4.entity;
 
-import com.proglab3.impl.CryableAbout;
-import com.proglab3.impl.OnCarlsonPlaceChangedListener;
-import com.proglab3.misc.CryVolume;
-import com.proglab3.place.Place;
-import com.proglab3.place.Room;
+import com.proglab4.exceptions.CarlsonIsAngryException;
+import com.proglab4.impl.*;
+import com.proglab4.misc.CryVolume;
+import com.proglab4.place.Place;
+import com.proglab4.place.Room;
+import com.proglab4.place.Village;
 
 import java.util.Objects;
 
-public class Baby extends Entity implements CryableAbout, OnCarlsonPlaceChangedListener {
+public class Baby extends Entity implements CryableAbout, OnCarlsonPlaceChangedListener, CareableAbout, Playable, Huggable {
 
     private CryVolume cryVolume = CryVolume.QUITE;
     private Carlson carlson;
     private boolean carlsonIsNear;
+    private Entity playingWith = null;
+    private boolean isHappy = true;
 
     public void run(Place place) {
         System.out.print(getName() + " помчался в ");
@@ -29,7 +32,7 @@ public class Baby extends Entity implements CryableAbout, OnCarlsonPlaceChangedL
     }
 
     public Entity thinksAbout() {
-        if (!carlsonIsNear)
+        if (!carlsonIsNear && playingWith == null)
             return carlson;
         return null;
     }
@@ -40,13 +43,29 @@ public class Baby extends Entity implements CryableAbout, OnCarlsonPlaceChangedL
             setCryVolume(CryVolume.QUITE);
             return carlson;
         }
-
         return null;
     }
 
     @Override
-    public boolean canFly() {
-        return false;
+    public Entity caresAbout() {
+        if (!carlsonIsNear) return carlson;
+        return null;
+    }
+
+    @Override
+    public void play(Entity entity) {
+        this.playingWith = entity;
+        System.out.println(getName() + " играет с " + playingWith.getName());
+    }
+
+    @Override
+    public void stopPlaying() {
+        this.playingWith = null;
+    }
+
+    @Override
+    public Sex getSex() {
+        return Sex.MALE;
     }
 
     @Override
@@ -74,6 +93,23 @@ public class Baby extends Entity implements CryableAbout, OnCarlsonPlaceChangedL
 
     public void setCryVolume(CryVolume cryVolume) {
         this.cryVolume = cryVolume;
+    }
+
+    public boolean isHappy() {
+        return isHappy;
+    }
+
+    public void setHappy(boolean happy) {
+        isHappy = happy;
+        if (isHappy) System.out.println(getName() + " счастлив");
+        else System.out.println(getName() + " не счастлив");
+    }
+
+    @Override
+    public void hug(Entity entity){
+        System.out.println(getName() + " обнимает " + entity.getName());
+        if (entity instanceof Carlson && ((Carlson) entity).isAngry())
+            throw new CarlsonIsAngryException("Карлсон злой!");
     }
 
     @Override

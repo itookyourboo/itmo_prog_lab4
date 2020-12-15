@@ -1,4 +1,4 @@
-package com.proglab3.misc;
+package com.proglab4.misc;
 
 import java.util.Objects;
 

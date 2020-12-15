@@ -1,4 +1,4 @@
-package com.proglab3.impl;
+package com.proglab4.impl;
 
 public interface InstanceChecker {
     boolean exists();
