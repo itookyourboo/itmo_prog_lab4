@@ -18,6 +18,7 @@ public class Baby extends Entity implements CryableAbout, OnCarlsonPlaceChangedL
     private boolean isHappy = true;
 
     public void run(Place place) {
+        if (place == null) throw new IllegalArgumentException("place cannot be null");
         System.out.print(getName() + " помчался в ");
         if (place.getOwner() == this)
             System.out.println("его " + place.getName());
@@ -27,6 +28,8 @@ public class Baby extends Entity implements CryableAbout, OnCarlsonPlaceChangedL
     }
 
     public void openWindowInRoom(Room room) {
+        if (room == null) throw new IllegalArgumentException("room can not be null");
+        if (room.getWindow() == null) throw new NullPointerException("room does not have window");
         room.getWindow().open();
         System.out.println(getName() + " распахнул " + room.getWindow().toString());
     }
@@ -54,6 +57,7 @@ public class Baby extends Entity implements CryableAbout, OnCarlsonPlaceChangedL
 
     @Override
     public void play(Entity entity) {
+        if (entity == null) throw new IllegalArgumentException("entity can not be null");
         this.playingWith = entity;
         System.out.println(getName() + " играет с " + playingWith.getName());
     }
@@ -92,6 +96,7 @@ public class Baby extends Entity implements CryableAbout, OnCarlsonPlaceChangedL
     }
 
     public void setCryVolume(CryVolume cryVolume) {
+        if (cryVolume == null) throw new IllegalArgumentException("cryVolume can not be null");
         this.cryVolume = cryVolume;
     }
 
@@ -107,6 +112,7 @@ public class Baby extends Entity implements CryableAbout, OnCarlsonPlaceChangedL
 
     @Override
     public void hug(Entity entity) {
+        if (entity == null) throw new IllegalArgumentException("entity can not be null");
         System.out.println(getName() + " обнимает " + entity.getName());
         if (entity instanceof Carlson && ((Carlson) entity).isAngry())
             throw new CarlsonIsAngryException("Карлсон злой!");

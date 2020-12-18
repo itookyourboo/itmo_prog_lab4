@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public class Room extends Place {
 
-    private Window window;
+    private final Window window;
 
     public Room() {
         window = new Window();

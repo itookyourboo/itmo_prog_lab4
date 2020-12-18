@@ -27,7 +27,7 @@ public class Bosse extends Entity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Betan room = (Betan) o;
+        Bosse room = (Bosse) o;
         return place.equals(room.place);
     }
 }

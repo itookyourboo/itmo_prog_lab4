@@ -11,10 +11,13 @@ public class Album {
     private int index = 0;
 
     public Album(int maxStamps) {
+        if (maxStamps < 1 || maxStamps > 1000)
+            throw new IllegalArgumentException("Illegal maxStamps value. 1 <= maxStamps <= 1000");
         stamps = new Stamp[maxStamps];
     }
 
     public void glue(Stamp stamp) throws StampIsBeautifulException {
+        if (stamp == null) throw new IllegalArgumentException("stamp can not be null");
         if (stamp.isBeautiful())
             throw new StampIsBeautifulException("Марка" + stamp.toString() + " слишком красивая");
         stamps[index++] = stamp;

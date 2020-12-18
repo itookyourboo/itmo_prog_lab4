@@ -6,8 +6,10 @@ public class Grandmother extends Entity {
 
     private Entity grandson;
 
+    public Grandmother() {}
+
     public Grandmother(Entity grandson) {
-        this.grandson = grandson;
+        setGrandson(grandson);
     }
 
     public Entity getGrandson() {
@@ -15,6 +17,7 @@ public class Grandmother extends Entity {
     }
 
     public void setGrandson(Entity grandson) {
+        if (grandson == null) throw new IllegalArgumentException("grandson can not be null");
         this.grandson = grandson;
     }
 

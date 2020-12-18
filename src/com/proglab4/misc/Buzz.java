@@ -13,8 +13,8 @@ public class Buzz {
     }
 
     public Buzz(float volume, float wavelength) {
-        this.volume = volume;
-        this.wavelength = wavelength;
+        setVolume(volume);
+        setWavelength(wavelength);
     }
 
     public float getVolume() {
@@ -22,6 +22,7 @@ public class Buzz {
     }
 
     public void setVolume(float volume) {
+        if (volume < 0 || volume > 1) throw new IllegalArgumentException("Illegal volume value. 0 <= volume <= 1");
         this.volume = volume;
     }
 
@@ -30,10 +31,12 @@ public class Buzz {
     }
 
     public void setWavelength(float wavelength) {
+        if (wavelength < 0) throw new IllegalArgumentException("waveLength can not be negative");
         this.wavelength = wavelength;
     }
 
     public boolean isSimilar(Buzz buzz) {
+        if (buzz == null) throw new IllegalArgumentException("buzz can not be null");
         return Math.abs(getVolume() - buzz.getVolume()) < .1f
                 && Math.abs(getWavelength() - buzz.getWavelength()) < 1f;
     }

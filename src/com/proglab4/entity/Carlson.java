@@ -112,6 +112,7 @@ public class Carlson extends Entity implements InstanceChecker, Kickable {
 
     @Override
     public void kick(Entity entity) {
+        if (entity == null) throw new IllegalArgumentException("entity can not be null");
         System.out.println(getName() + " отпихивает " + entity.getName());
         if (entity instanceof Baby)
             ((Baby) entity).setHappy(false);

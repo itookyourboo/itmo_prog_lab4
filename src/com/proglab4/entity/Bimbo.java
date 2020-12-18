@@ -27,7 +27,7 @@ public class Bimbo extends Entity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Betan room = (Betan) o;
+        Bimbo room = (Bimbo) o;
         return place.equals(room.place);
     }
 }

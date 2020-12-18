@@ -6,8 +6,10 @@ public class Mother extends Entity {
 
     private Entity son;
 
+    public Mother() {}
+
     public Mother(Entity son) {
-        this.son = son;
+        setSon(son);
     }
 
     public Entity getSon() {
@@ -15,6 +17,7 @@ public class Mother extends Entity {
     }
 
     public void setSon(Entity son) {
+        if (son == null) throw new IllegalArgumentException("son can not be null");
         this.son = son;
     }
 
